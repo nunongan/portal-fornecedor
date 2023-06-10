@@ -1,9 +1,3 @@
-/**
- * Author and copyright: Stefan Haack (https://shaack.com)
- * Repository: https://github.com/shaack/bootstrap-cookie-consent-settings
- * License: MIT, see file 'LICENSE'
- */
-
 const sh = {bccs: {}}
 
 function BootstrapCookieConsentSettings(props) {
@@ -13,7 +7,7 @@ function BootstrapCookieConsentSettings(props) {
     this.props = {
         autoShowDialog: true, // disable autoShowModal on the privacy policy and legal notice pages, to make these pages readable
         lang: navigator.language, // the language, in which the modal is shown
-        languages: ["pt"], // supported languages (in ./content/), defaults to first in array
+        languages: ["pt"], 
         contentURL: "cookies", // this URL must contain the dialogs content in the needed languages
         cookieName: "municipio-apresentacao",  // the name of the cookie in which the configuration is stored as JSON
         cookieStorageDays: 365, // the duration the cookie configuration is stored on the client
