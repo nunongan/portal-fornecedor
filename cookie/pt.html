@@ -1,0 +1,103 @@
+<style>
+  :root {
+    --primary: #5660ed;
+    --secondary: #f4f4f4;
+    --success: #79c346;
+    --white: #fff;
+    --red: #d9574c;
+    --nav-not-active: #454545;
+    --table-border: #e6e9ed;
+    --container: #efefef;
+    --muted: #adb5bd;
+    --regular: 400;
+    --medium: 500;
+    --semi-bold: 600;
+    --bold: 700;
+    --extra-bold: 800;
+    --black: 900;
+
+
+  }
+
+  body {
+
+    overflow-y: auto !important;
+    padding-right: 0 !important;
+  }
+
+  .cookie-container {
+    background-color: var(--secondary);
+  }
+
+  div.modal-dialog {
+    background-color: var(--secondary);
+    margin: 0;
+    max-width: none;
+  }
+
+  #bccs-buttonAgree {
+    margin-right: 2rem !important;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  #bccs-buttonDoNotAgree {
+
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .modal-content {
+
+    background-color: var(--secondary);
+    border: none;
+    padding: 2rem;
+  }
+
+  @media (min-width: 576px) {
+
+    #cookieBannerText p {
+
+      margin-bottom: 1rem;
+
+
+    }
+  }
+
+  @media (min-width: 992px) {
+
+    #cookieBannerText p {
+
+      margin-bottom: 0;
+
+
+    }
+  }
+</style>
+
+<div id="cookieBanner" class="modal-dialog pt-3 fixed-bottom" role="document">
+  <div class="modal-content">
+    <div class="cookie-container container">
+      <div class="row">
+        <div id="cookieBannerText"
+          class="col-12 col-lg-6 bccs-body-text justify-content-center text-center mb-3 mb-lg-0">
+          <p>Este website utiliza Cookies.
+            <br>Ao continuar a navegação está a aceitar a sua utilização.
+            <br>Caso pretenda saber mais, consulte a nossa
+            <a href="cookies.html">Política de Cookies.</a>
+          </p>
+        </div>
+        <div class="col-12 col-lg-6 bccs-body-text d-flex align-items-center justify-content-center">
+          <div class="d-flex d-flex text-center">
+            <button id="bccs-buttonAgree" type="button" class="btn btn-primary me-5">
+              Sim, aceito
+            </button>
+            <div id="close" type="button" class="btn btn-secondary">
+              Não, não aceito
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
