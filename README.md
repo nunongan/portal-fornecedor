@@ -8,7 +8,7 @@ Insere-se na área de soluções de apoio à contratação pública e transparê
 - Promover a transparência ao disponibilizar informação sobre contratação pública;
 - Facilitar e auxiliar as entidades públicas na contratação pública de acordo com o código da contratação pública.
 
-Este projeto foi desenvolvido no âmbito de estágio curricular, para a empresa Alfamind - Innovation Systems Lda e consistiu na criação do frontend do design fornecido pela empresa.
+Este projeto foi desenvolvido no âmbito de estágio curricular, para a empresa Alfamind - Innovation Systems Lda e consistiu unicamente na criação da User Interface, com base no design fornecido pela empresa.
 
 O produto pode ser consultado em: https://dev.alfamind.com/portal-fornecedor/
 
@@ -23,6 +23,6 @@ The supplier portal is a pioneering product aimed at all municipalities in the c
 - Promote transparency by providing information about public procurement.
 - Simplify and assist public entities in public procurement in accordance with the public procurement code.
 
-This project was developed as part of a curricular internship for Alfamind - Innovation Systems Ltd., and involved creating the frontend based on the design provided by the company.
+This project was developed as part of a curricular internship for Alfamind - Innovation Systems Ltd., and only involved the creation of the User Interface, based on the design provided by the company.
 
 The product can be consulted at: https://dev.alfamind.com/portal-fornecedor/
