@@ -22,135 +22,135 @@ $(document).ready(function () {
     var transparentBackground = "transparent"; // 🎨   Variável para a cor de fundo do gráfico
 
     var ctx = $("#myChart");
-    if($("#myChart").length){
-    new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: xValues,
-        datasets: [
-          {
-            label: "Fornecedores Registados por Mês", // Atribuição de uma etiqueta
-            borderColor: lineColor, // Definição da cor da borda da etiqueta
-            backgroundColor: transparentBackground, // Definição da cor de fundo
-            data: yValues, // Associação dos dados a serem analisados (Eixo Y)
+    if ($("#myChart").length) {
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              label: "Fornecedores Registados por Mês", // Atribuição de uma etiqueta
+              borderColor: lineColor, // Definição da cor da borda da etiqueta
+              backgroundColor: transparentBackground, // Definição da cor de fundo
+              data: yValues, // Associação dos dados a serem analisados (Eixo Y)
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: true, // Mostrar legenda
           },
-        ],
-      },
-      options: {
-        legend: {
-          display: true, // Mostrar legenda
-        },
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true, // Valor minimo ser 0
-                max: 200, // Valor máximo da tabela ser 200
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true, // Valor minimo ser 0
+                  max: 200, // Valor máximo da tabela ser 200
+                },
               },
-            },
-          ],
-          xAxes: [
-            {
-              ticks: {
-                fontColor: "#000000",
-                fontSize: 14,
-                stepSize: 1,
-                beginAtZero: true,
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  fontColor: "#000000",
+                  fontSize: 14,
+                  stepSize: 1,
+                  beginAtZero: true,
+                },
               },
-            },
-          ],
+            ],
+          },
         },
-      },
-    });
-  }
+      });
+    }
   });
 
   $(function () {
     var ctx = $("#nrAdjChart");
-    if($("#nrAdjChart").length){
-    new Chart(ctx, {
-      type: "pie",
-      data: {
-        labels: [
-          // 🏷️ Criação das Etiquetas
-          "AD Simplificado",
-          "AD Regime Geral",
-          "AD Critérios Materiais",
-          "Concurso Público",
-          "Consulta Prévia",
-        ],
-        datasets: [
-          {
-            backgroundColor: [
-              // 🎨 Atribuição de cores para cada etiqueta
-              "#fbbb3d",
-              "#2fabe9",
-              "#fa5832",
-              "#2488ba",
-              "#79cd51",
-            ],
-            data: [9691, 464, 145, 155, 402], //📈 Dados de cada etiqueta
+    if ($("#nrAdjChart").length) {
+      new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: [
+            // 🏷️ Criação das Etiquetas
+            "AD Simplificado",
+            "AD Regime Geral",
+            "AD Critérios Materiais",
+            "Concurso Público",
+            "Consulta Prévia",
+          ],
+          datasets: [
+            {
+              backgroundColor: [
+                // 🎨 Atribuição de cores para cada etiqueta
+                "#fbbb3d",
+                "#2fabe9",
+                "#fa5832",
+                "#2488ba",
+                "#79cd51",
+              ],
+              data: [9691, 464, 145, 155, 402], //📈 Dados de cada etiqueta
+            },
+          ],
+        },
+        options: {
+          legend: {
+            position: "bottom", // ⬇️ Definida a posição da legenda
           },
-        ],
-      },
-      options: {
-        legend: {
-          position: "bottom", // ⬇️ Definida a posição da legenda
+          canvas: {
+            height: 500, // 📏 Altura do Gráfico
+            width: 500, // 📏 Largura do Gráfico
+          },
         },
-        canvas: {
-          height: 500, // 📏 Altura do Gráfico
-          width: 500, // 📏 Largura do Gráfico
-        },
-      },
-    });
-  }
+      });
+    }
   });
 
   $(function () {
     var ctx = $("#valAdjChart");
-    if($("#valAdjChart").length){
-    new Chart(ctx, {
-      type: "pie",
-      data: {
-        labels: [
-          "AD Regime Geral",
-          "AD Critérios Materiais",
-          "AD Simplificado",
-          "Concurso Público",
-          "Consulta Prévia",
-        ],
-        datasets: [
-          {
-            backgroundColor: [
-              "#fbbb3d",
-              "#2fabe9",
-              "#fa5832",
-              "#2488ba",
-              "#79cd51",
-            ],
-            data: [
-              6176503.08, 10656386.96, 8396560.89, 40594545.87, 14306192.53,
-            ],
-          },
-        ],
-      },
-      options: {
-        legend: {
-          position: "bottom",
+    if ($("#valAdjChart").length) {
+      new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: [
+            "AD Regime Geral",
+            "AD Critérios Materiais",
+            "AD Simplificado",
+            "Concurso Público",
+            "Consulta Prévia",
+          ],
+          datasets: [
+            {
+              backgroundColor: [
+                "#fbbb3d",
+                "#2fabe9",
+                "#fa5832",
+                "#2488ba",
+                "#79cd51",
+              ],
+              data: [
+                6176503.08, 10656386.96, 8396560.89, 40594545.87, 14306192.53,
+              ],
+            },
+          ],
         },
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItem, data) {
-              var value = data.datasets[0].data[tooltipItem.index];
-              return (
-                value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €" // ❓ Expressão Regular para adicionar o separador de milhares e adicionar o símbolo de "€" no fim do número
-              );
+        options: {
+          legend: {
+            position: "bottom",
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                var value = data.datasets[0].data[tooltipItem.index];
+                return (
+                  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €" // ❓ Expressão Regular para adicionar o separador de milhares e adicionar o símbolo de "€" no fim do número
+                );
+              },
             },
           },
         },
-      },
-    });
-  }
+      });
+    }
   });
 
   // ❓ Definição de algumas variáveis globais ❓
@@ -291,21 +291,20 @@ $(document).ready(function () {
   let interval = null; // Criação de uma variável para definição de intervalo entre slides
   let isPaused = false; // Variable to track the pause state
 
-
   // 📏Banner Height 📏
   // Vai buscar todos os containers da banner e compara as suas alturas
   // O que tiver maior altura irá ser o min-height de todas as banners.
 
-  var bannerContainers = $('.banner-container');
-  
+  var bannerContainers = $(".banner-container");
+
   // Variável que guarda a altura maior
   var maxHeight = 0;
-  
+
   // Ciclo para precorrer todas as banners
-  bannerContainers.each(function() {
+  bannerContainers.each(function () {
     // Obter a altura de uma banner
     var height = $(this).height();
-    
+
     // Comparar alturas
     if (height > maxHeight) {
       maxHeight = height;
@@ -313,8 +312,7 @@ $(document).ready(function () {
   });
 
   // Definir altura da maior banner como o min-height
-  bannerContainers.css('min-height', maxHeight + 'px');
-
+  bannerContainers.css("min-height", maxHeight + "px");
 
   // 🎠 Função de Reprodução Automática do Banner 🎠
 
@@ -332,7 +330,6 @@ $(document).ready(function () {
   }
   bannerAutoplay();
 
-  
   // ⏯️ Play and Pause ⏯️
   $(".controller-pausePlay").click(function () {
     if (!isPaused) {
@@ -346,7 +343,7 @@ $(document).ready(function () {
       $(this).text("Pause Slide");
     }
   });
-  
+
   // ⏩ Next Slide ⏩
   $(".controller-next").click(function () {
     if (!flag) {
@@ -358,7 +355,7 @@ $(document).ready(function () {
     }
     flag = !flag;
   });
-  
+
   // ⏪ Previous Slide ⏪
   $(".controller-prev").click(function () {
     if (flag) {
@@ -527,8 +524,6 @@ $(document).ready(function () {
     return valid;
   }
 
-
-
   // ✅ Validação de formulário de Login do Pop Up ✅
 
   // Efetua exatamente a mesma validação acima, porém especificamente para os campos do pop up
@@ -610,14 +605,6 @@ $(document).ready(function () {
   //   var clickedIndex = clickedTab.index();
   //   var currentTab = $("button.nav-link.active");
   //   var currentIndex = currentTab.index();
-  //   var invalidFeedback = $(this).parent().find(".invalid-feedback");
-
-  //   console.log(clickedTab);
-  //   console.log(clickedIndex);
-
-  //   console.log(currentTab);
-  //   console.log(currentIndex);
-
 
   //   var tabs = $('button[data-bs-toggle="tab"]');
 
@@ -625,7 +612,6 @@ $(document).ready(function () {
 
   //   for (var i = 0; i < clickedIndex; i++) {
   //     var tabContent = $($(tabs[i]).data("bs-target"));
-  //     console.log(tabs[i]);
   //     if (!validateTabContent(tabContent)) {
   //       $(tabs[i]).addClass("text-danger");
   //       clickedTab.addClass("text-danger");
@@ -642,7 +628,6 @@ $(document).ready(function () {
   //   invalidFeedback.remove();
   // });
 
-
   // function clearValidation() {
   //   $('input.is-invalid, select.is-invalid, textarea.is-invalid').removeClass('is-invalid');
   //   $('input.text-danger, select.text-danger, label.text-danger').removeClass('text-danger');
@@ -655,44 +640,39 @@ $(document).ready(function () {
     var currentTab = $("button.nav-link.active");
     var currentIndex = currentTab.index();
     var invalidFeedback = $(this).parent().find(".invalid-feedback");
-  
-    console.log(clickedTab);
-    console.log(clickedIndex);
-  
-    console.log(currentTab);
-    console.log(currentIndex);
-  
+
     var tabs = $('button[data-bs-toggle="tab"]');
     var allValid = true;
-  
+
     for (var i = 0; i < clickedIndex; i++) {
       var tabContent = $($(tabs[i]).data("bs-target"));
-      console.log(tabs[i]);
       if (!validateTabContent(tabContent)) {
         $(tabs[i]).addClass("text-danger");
         clickedTab.addClass("text-danger");
         allValid = false;
       }
     }
-  
+
     if (!allValid) {
       e.preventDefault();
       return;
     }
-  
+
     tabs.removeClass("text-danger");
     invalidFeedback.remove();
-  
+
     clearValidation(currentIndex);
   });
-  
+
   function clearValidation(currentIndex) {
-    $('input.is-invalid, select.is-invalid, textarea.is-invalid').not(`.tab-pane:eq(${currentIndex})`).removeClass('is-invalid');
-    $('input.text-danger, select.text-danger, label.text-danger').not(`.tab-pane:eq(${currentIndex})`).removeClass('text-danger');
-    $('span.invalid-feedback').not(`.tab-pane:eq(${currentIndex})`).remove();
+    $("input.is-invalid, select.is-invalid, textarea.is-invalid")
+      .not(`.tab-pane:eq(${currentIndex})`)
+      .removeClass("is-invalid");
+    $("input.text-danger, select.text-danger, label.text-danger")
+      .not(`.tab-pane:eq(${currentIndex})`)
+      .removeClass("text-danger");
+    $("span.invalid-feedback").not(`.tab-pane:eq(${currentIndex})`).remove();
   }
-  
-  
 
   // ⏭️ Botão Seguinte ⏭️
   // Chama a função de validação e se tudo estiver correto, passa para o tab seguinte.
@@ -722,7 +702,7 @@ $(document).ready(function () {
 
   $("input:radio").change(function () {
     var radio = $(this);
-    console.log(radio.val());
+
     var input = $("#outroText");
 
     if (radio.val() == "outro") {
@@ -799,13 +779,11 @@ $(document).ready(function () {
 
     if (datapage == "first") {
       $(this).parent().first().next().find(`button`).trigger("click"); // ⚙️ Se o atributo data-page tiver o valor "first"
-      //console.log($(this).parent().first().next());                    // ⚙️ Clica no que está a seguir do primeiro que foi encontrado
       return; // ⚙️ Uma vez que o primeiro botão da paginação e também "first" é o botão "<<"
     }
 
     if (datapage == "last") {
       $(this).parent().last().prev().find(`button`).trigger("click"); // ⚙️ Se o atributo data-page tiver o valor "last"
-      // console.log($(this).parent().first().next());               // ⚙️ Clica no que está a antes do primeiro que foi encontrado
       return; // ⚙️ Uma vez que o ultimo botão da paginação e também "last" é o botão ">>"
     }
 
@@ -820,36 +798,29 @@ $(document).ready(function () {
       .removeClass("active"); // ⚙️ remove-se a class "active", para ficarem com a cor de um botão não ativo.
   });
 
-
-
   //Quando o modal de Reset Password aparece
 
   $("#resetPasswordModal").on("shown.bs.modal", function () {
-
     $(this).find("input").eq(0).focus(); // Foca no primeiro input do Modal, quando o mesmo aparecer
- 
   });
 
+  $("#resetPasswordLink").click(function (event) {
+    event.preventDefault();
 
-$("#resetPasswordLink").click(function (event) {
-  event.preventDefault();
-  
-  $("#resetPasswordModal").modal("show");
+    $("#resetPasswordModal").modal("show");
 
-  // Add animation class when showing the modal
-  $("#resetPasswordModal").on("shown.bs.modal", function () {
-    $(this).find(".modal-dialog").addClass("fade");
-  });
-});
-
-$("#closeModal").click(function () {
-  // Remove animation class when hiding the modal
-  $("#resetPasswordModal").on("hidden.bs.modal", function () {
-    $(this).find(".modal-dialog").removeClass("fade");
+    // Add animation class when showing the modal
+    $("#resetPasswordModal").on("shown.bs.modal", function () {
+      $(this).find(".modal-dialog").addClass("fade");
+    });
   });
 
-  $("#resetPasswordModal").modal("hide");
-});
+  $("#closeModal").click(function () {
+    // Remove animation class when hiding the modal
+    $("#resetPasswordModal").on("hidden.bs.modal", function () {
+      $(this).find(".modal-dialog").removeClass("fade");
+    });
 
-
+    $("#resetPasswordModal").modal("hide");
+  });
 });
